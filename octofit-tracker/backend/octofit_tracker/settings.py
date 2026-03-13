@@ -27,8 +27,12 @@ DEBUG = True
 
 
 import os
-# Permitir todos os hosts
-ALLOWED_HOSTS = ['*']
+# Permitir localhost, 127.0.0.1 e domínio do Codespaces
+CODESPACE_NAME = os.environ.get('CODESPACE_NAME')
+codespace_host = f"{CODESPACE_NAME}-8000.app.github.dev" if CODESPACE_NAME else None
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+if codespace_host:
+    ALLOWED_HOSTS.append(codespace_host)
 
 
 # Application definition
@@ -148,8 +152,15 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = ['*']
 CORS_ALLOW_METHODS = ['*']
 
-# Permitir todos os hosts (redundante para garantir)
-CSRF_TRUSTED_ORIGINS = ['*']
+# CSRF_TRUSTED_ORIGINS precisa de URLs completas a partir do Django 4+
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:8000',
+    'https://localhost:8000',
+    'http://127.0.0.1:8000',
+    'https://127.0.0.1:8000',
+]
+if codespace_host:
+    CSRF_TRUSTED_ORIGINS.append(f"https://{codespace_host}")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

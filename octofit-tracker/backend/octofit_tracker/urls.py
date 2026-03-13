@@ -29,17 +29,20 @@ router.register(r'activities', views.ActivityViewSet, basename='activity')
 router.register(r'workouts', views.WorkoutViewSet, basename='workout')
 router.register(r'leaderboard', views.LeaderboardViewSet, basename='leaderboard')
 
+
 # Helper para construir URLs baseadas no ambiente Codespaces
 def get_codespace_base_url(request):
     codespace_name = os.environ.get('CODESPACE_NAME')
     if codespace_name:
         return f"https://{codespace_name}-8000.app.github.dev"
+    # fallback para localhost
     return request.build_absolute_uri('/')[:-1]
 
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
+
 
 @api_view(['GET'])
 def api_root(request, format=None):
