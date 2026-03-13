@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-qyk!_kh6)t4e++7jk^d4=*6gt=zp@k2--)@t6md#9w0%^q$q44
 DEBUG = True
 
 
+import os
 # Permitir todos os hosts
 ALLOWED_HOSTS = ['*']
 
@@ -41,10 +42,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'octofit_tracker',
+
     'rest_framework',
     'djongo',
-    'corsheaders',
 ]
+
+# Permitir localhost e domínio do Codespaces
+CODESPACE_NAME = os.environ.get('CODESPACE_NAME')
+codespace_host = f"{CODESPACE_NAME}-8000.app.github.dev" if CODESPACE_NAME else None
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+if codespace_host:
+    ALLOWED_HOSTS.append(codespace_host)
 
 
 MIDDLEWARE = [
