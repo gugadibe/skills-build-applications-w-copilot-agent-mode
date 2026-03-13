@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(135deg, #e3f0ff 0%, #f9e7ff 100%);
+  color: #222b45;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.navbar {
+  background: linear-gradient(90deg, #3a8dde 0%, #6f42c1 100%) !important;
+  box-shadow: 0 2px 8px rgba(58,141,222,0.08);
+}
+.navbar .navbar-brand, .navbar .nav-link {
+  color: #fff !important;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+.navbar .navbar-brand img {
+  height: 36px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.navbar .nav-link.active {
+  color: #ffe082 !important;
+}
+
+.card {
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(58,141,222,0.07);
+  background: #fff;
+}
+.card-title {
+  color: #6f42c1;
+  font-weight: 700;
+}
+
+.table {
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.table thead {
+  background: linear-gradient(90deg, #3a8dde 0%, #6f42c1 100%);
+  color: #fff;
+}
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #e3f0ff;
+}
+.table-striped > tbody > tr:nth-of-type(even) {
+  background-color: #f9e7ff;
+}
+
+.btn, .btn-primary {
+  background: linear-gradient(90deg, #3a8dde 0%, #6f42c1 100%);
+  border: none;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: background 0.2s;
+}
+.btn:hover, .btn-primary:hover {
+  background: linear-gradient(90deg, #6f42c1 0%, #3a8dde 100%);
+  color: #ffe082;
+}
+
+a, .nav-link {
+  color: #3a8dde;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover, .nav-link:hover {
+  color: #6f42c1;
+}
+
+h1, h2, h3, h4, h5 {
+  color: #3a8dde;
+  font-weight: 700;
+}
+
+/* Favicon fix for dark backgrounds */
+link[rel="icon"] {
+  filter: drop-shadow(0 0 2px #fff);
+}
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
